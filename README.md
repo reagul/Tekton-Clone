@@ -57,3 +57,19 @@ the `kubectl run` command and then run:
 [sa]: https://kubernetes.io/docs/admin/authentication/#service-account-tokens
 [mk]: https://kubernetes.io/docs/getting-started-guides/minikube/
 # Tekton-Clone
+
+GOOS=linux go build -o ./app .
+docker build -t somename/in-cluster:v8 .
+
+docker push somename/in-cluster:v8
+
+kubectl run --rm -i demo --image=somename/in-cluster:v8
+
+https://stackoverflow.com/questions/49173838/deployments-apps-is-forbidden-user-systemserviceaccountdefaultdefault-cann
+
+kubectl create clusterrolebinding serviceaccounts-cluster-admin  --clusterrole=cluster-admin  --group=system:serviceaccounts
+
+
+
+
+
